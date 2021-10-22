@@ -20,9 +20,10 @@ public class log_in_test {
   @Test
   public void login() throws Exception {
 	  
-	  registerpage.singIn();
+	  registerpage.signIn(driver);
 	  Thread.sleep(2000);
-	  //assertNotEquals("Welcome back", registerpage.okLogIn());
+	  registerpage.okLogIn(driver);
+	  assertEquals("Welcome back", registerpage.okLogIn(driver));
 	  
 	  
   }

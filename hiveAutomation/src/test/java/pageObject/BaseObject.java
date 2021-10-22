@@ -29,7 +29,7 @@ public class BaseObject {
 	}
 	
 	public WebDriver chromeDriverConnection() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User.DESKTOP-RT4P2IR\\eclipse-workspace\\hiveAutomation\\src\\test\\resources\\drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User.DESKTOP-RT4P2IR\\git\\hiveAutomation\\hiveAutomation\\src\\test\\resources\\drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		return driver;
 	}
@@ -51,6 +51,7 @@ public class BaseObject {
 	}
 	
 	public void type(String inputText, By locator) {
+		driver.findElement(locator).clear();
 		driver.findElement(locator).sendKeys(inputText);
 	}
 	
