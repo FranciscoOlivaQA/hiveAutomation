@@ -1,25 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="1" passed="1" failed="0" skipped="0">
+<testng-results total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-22T19:17:33Z" name="Default suite" finished-at="2021-09-22T19:17:53Z" duration-ms="19604">
+  <suite started-at="2021-10-20T13:27:06Z" name="Default suite" finished-at="2021-10-20T13:27:06Z" duration-ms="60">
     <groups>
     </groups>
-    <test started-at="2021-09-22T19:17:33Z" name="Default test" finished-at="2021-09-22T19:17:53Z" duration-ms="19604">
-      <class name="testObject.sing_up">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:testObject.sing_up@658c5a19]" started-at="2021-09-22T16:17:33Z" name="beforeClass" finished-at="2021-09-22T16:17:38Z" duration-ms="4308" status="PASS">
+    <test started-at="2021-10-20T13:27:06Z" name="Default test" finished-at="2021-10-20T13:27:06Z" duration-ms="60">
+      <class name="testObject.log_in_test">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:testObject.log_in_test@418c5a9c]" started-at="2021-10-20T10:27:06Z" name="beforeTest" finished-at="2021-10-20T10:27:06Z" duration-ms="0" status="FAIL">
+          <exception class="java.lang.IllegalStateException">
+            <message>
+              <![CDATA[The driver executable does not exist: C:\Users\User.DESKTOP-RT4P2IR\eclipse-workspace\hiveAutomation\src\test\resources\drivers\chromedriver.exe]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalStateException: The driver executable does not exist: C:\Users\User.DESKTOP-RT4P2IR\eclipse-workspace\hiveAutomation\src\test\resources\drivers\chromedriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:123)
+	at pageObject.BaseObject.chromeDriverConnection(BaseObject.java:33)
+	at testObject.log_in_test.beforeTest(log_in_test.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.TestRunner.beforeRun(TestRunner.java:641)
+	at org.testng.TestRunner.run(TestRunner.java:609)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalStateException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method signature="singUp()[pri:0, instance:testObject.sing_up@658c5a19]" started-at="2021-09-22T16:17:38Z" name="singUp" finished-at="2021-09-22T16:17:52Z" duration-ms="14666" status="PASS">
+        </test-method> <!-- beforeTest -->
+        <test-method signature="login()[pri:0, instance:testObject.log_in_test@418c5a9c]" started-at="2021-10-20T10:27:06Z" name="login" finished-at="2021-10-20T10:27:06Z" duration-ms="1" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- singUp -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:testObject.sing_up@658c5a19]" started-at="2021-09-22T16:17:52Z" name="afterClass" finished-at="2021-09-22T16:17:53Z" duration-ms="619" status="PASS">
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:testObject.log_in_test@418c5a9c]" started-at="2021-10-20T10:27:06Z" name="afterTest" finished-at="2021-10-20T10:27:06Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterClass -->
-      </class> <!-- testObject.sing_up -->
+        </test-method> <!-- afterTest -->
+      </class> <!-- testObject.log_in_test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

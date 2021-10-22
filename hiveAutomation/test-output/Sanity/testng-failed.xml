@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Sanity]">
+  <test parallel="none" name="Sign Up(failed)">
+    <classes>
+      <class name="testObject.validate_home">
+        <methods>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- testObject.validate_home -->
+      <class name="testObject.sing_up">
+        <methods>
+          <include name="singUp"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- testObject.sing_up -->
+      <class name="testObject.log_in_test">
+        <methods>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- testObject.log_in_test -->
+    </classes>
+  </test> <!-- Sign Up(failed) -->
+  <test parallel="none" name="Validation URL(failed)">
+    <classes>
+      <class name="testObject.validate_home">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="pageDispalyed"/>
+          <include name="burgerMenuDispleyed"/>
+          <include name="objectsDisplayed"/>
+        </methods>
+      </class> <!-- testObject.validate_home -->
+      <class name="testObject.sing_up">
+        <methods>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- testObject.sing_up -->
+      <class name="testObject.log_in_test">
+        <methods>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- testObject.log_in_test -->
+    </classes>
+  </test> <!-- Validation URL(failed) -->
+  <test parallel="none" name="LogIn(failed)">
+    <classes>
+      <class name="testObject.validate_home">
+        <methods>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- testObject.validate_home -->
+      <class name="testObject.sing_up">
+        <methods>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- testObject.sing_up -->
+      <class name="testObject.log_in_test">
+        <methods>
+          <include name="login"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- testObject.log_in_test -->
+    </classes>
+  </test> <!-- LogIn(failed) -->
+</suite> <!-- Failed suite [Sanity] -->

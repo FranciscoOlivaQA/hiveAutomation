@@ -3,8 +3,10 @@ package util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -36,6 +38,38 @@ public class WriteExcelFile {
 			XSSFCell newCell = newRow.createCell(i);
 			newCell.setCellValue(dataToWrite[i]);
 		}
+		inputStream.close();
+		FileOutputStream outputStream = new FileOutputStream(file);
+		
+		newWorkbook.write(outputStream);
+		outputStream.close();
 	}
 
+	public void writeCellValue(String filepath, String sheetName, int rowNumber, int cellNumber, String resultText) throws IOException {
+		
+		File file = new File(filepath);
+		
+		FileInputStream inputStream = new FileInputStream(file);
+		
+		XSSFWorkbook newWorkbook = new XSSFWorkbook(inputStream);
+		
+		XSSFSheet newSheet = newWorkbook.getSheet(sheetName);
+		
+		XSSFRow row = newSheet.getRow(rowNumber);
+		
+		XSSFCell firstCell = row.getCell(cellNumber-1);
+		
+		System.out.println("first cell value es: "+ firstCell.getStringCellValue());
+		
+		XSSFCell nextCell = row.createCell(cellNumber);
+		
+		nextCell.setCellValue(resultText);
+		System.out.println("next cell value es: "+ nextCell.getStringCellValue());
+		
+		inputStream.close();
+		
+		FileOutputStream outputStream = new FileOutputStream(file);
+		newWorkbook.write(outputStream);
+		outputStream.close();
+	}
 }

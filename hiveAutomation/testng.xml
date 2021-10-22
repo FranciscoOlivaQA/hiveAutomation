@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Sanity">
+	<test name="Sign Up">
+		<classes>
+			<class name="testObject.sing_up" />
+		</classes>
+	</test>
+	<test name="Validation URL">
+		<classes>
+			<class name="testObject.validate_home" />
+		</classes>
+	</test>
+	<test name="LogIn">
+		<classes>
+			<class name="testObject.log_in_test" />
+		</classes>
+	</test>
+</suite> 
