@@ -38,7 +38,7 @@ public class validate_home {
 	  registerpage = new RegisterPage(driver);
 	  driver = registerpage.chromeDriverConnection();
 	  registerpage.visit("http://staging.hellohive.com/login");
-	  registerpage.singIn();
+	  registerpage.signIn(driver);
 	  Thread.sleep(2000);
 	  homepage = new HomePage(driver);
   }

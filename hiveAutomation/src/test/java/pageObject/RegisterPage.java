@@ -23,22 +23,6 @@ public class RegisterPage extends BaseObject{
 	By SingIn = By.xpath("//*[@id=\"root\"]/div/div/div/form/button[2]");
 	By okLabel = By.xpath("/html/body/div[1]/div/div[2]/div[1]/div/div/label");
 	
-//	public void singIn() {
-//		if(
-//		isDisplayed(forgotLabel)&
-//		isDisplayed(singUpLabel)&
-//		isDisplayed(singUpBtn)
-//		) {
-//		System.out.println("antes de poner las credenciales");
-//		type("foliva@kubikware.com", emailLabel);
-//		type("Frankie.652", passLabel);
-//		click(SingIn);
-//		}else {
-//			System.out.println("register page was not found ");
-//		}
-//		
-//	
-//	}
 	
 	
 	
