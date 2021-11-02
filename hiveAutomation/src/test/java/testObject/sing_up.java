@@ -10,6 +10,7 @@ import pageObject.SingUpPage;
 import org.testng.annotations.BeforeClass;
 
 import static org.junit.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -23,61 +24,17 @@ public class sing_up {
   @Test
   public void singUp() throws NullPointerException, InterruptedException {
 	  Thread.sleep(200);
-	  singuppage.singUp();
+	  singuppage.singUp(driver);
+	  assertTrue(singuppage.okletsgo(driver));
 	  Thread.sleep(200);
-	  singuppage.enterName();
-	  Thread.sleep(2000);
-	  singuppage.enterEmail();
-	  Thread.sleep(2000);
-	  singuppage.alterMail();
-	  Thread.sleep(2000);
-	  singuppage.aboutUs();
-	  Thread.sleep(2000);
-	  singuppage.university();
-	  Thread.sleep(2000);
-	  singuppage.password();
-	  Thread.sleep(2000);
-	  singuppage.confirm();
-	  Thread.sleep(2000);
-  }
+	  }
+
   
-  /*
+  
   @Test
   public void abenterEmail() throws Exception  {
-	  
-  }
-  
-  @Test
-  public void acalterEmail() throws Exception {
-	  
-  }
-  
-  @Test
-  public void adaboutUs() throws Exception{
-	  
-  }
-  
-  @Test
-  public void aeuniversity() throws Exception{
-	  
-  }
-  
-  @Test
-  public void afpassword() throws Exception{
-	  
-  }
-  
-  @Test
-  public void agphoneNumber() throws Exception{
-	  singuppage.phoneNumber();
-	  Thread.sleep(2000);
-  }
-  
-  @Test
-  public void ahconfirm() throws Exception{
-	  
-  }
-  */
+	  //	  singuppage.enterName();
+	  }
   
   
   @BeforeClass

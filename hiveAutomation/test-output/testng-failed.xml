@@ -3,13 +3,13 @@
 <suite parallel="none" name="Failed suite [Default suite]">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="testObject.log_in_test">
+      <class name="testObject.sing_up">
         <methods>
-          <include name="login"/>
-          <include name="afterTest"/>
-          <include name="beforeTest"/>
+          <include name="singUp"/>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- testObject.log_in_test -->
+      </class> <!-- testObject.sing_up -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

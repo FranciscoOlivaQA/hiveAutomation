@@ -2,7 +2,9 @@ package pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SingUpPage extends BaseObject {
 
@@ -23,6 +25,7 @@ public class SingUpPage extends BaseObject {
 	By letsGo = By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div/button");
 
 	// namePage
+	By titleName = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div/div[1]/h1");
 	By name = By.name("firstName");
 	By lastName = By.name("lastName");
 	By nameContinueBtn = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div/div[2]/div[1]/div[4]");
@@ -73,27 +76,44 @@ public class SingUpPage extends BaseObject {
 	By confirmEmailLabel = By.name("email");
 	By confirmEmailButton = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[1]/div/button");
 
-	public void singUp() {
-		if (isDisplayed(singUpTextLabel)) {
-			click(letsGo);
-			System.out.print("letgo");
-		} else {
-			System.out.print("Failed MF");
-		}
+	
+	
+	
+	public void singUp(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.urlToBe("http://staging.hellohive.com/register"));
+		wait.until(ExpectedConditions.textToBe(singUpTextLabel, "Sign up and get buzzing."));
+		wait.until(ExpectedConditions.elementToBeClickable(letsGo));
+		click(letsGo);
+		wait.until(ExpectedConditions.elementToBeClickable(name));
 	}
 
-	public boolean logoDisplay() {
-		return isDisplayed(letsGo);
+	public boolean okletsgo(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(name));
+		return true;
+	}
+	
+	
+	
+	public void enterName(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+ 		//wait.until(ExpectedConditions.textToBe(locator, value));
+		wait.until(ExpectedConditions.elementToBeClickable(name));
+ 		
+		type("Automation", name);
+		type("Test", lastName);
+		click(nameContinueBtn);
+		
 	}
 
-	public void enterName() {
-		if (isDisplayed(name) & isDisplayed(lastName)) {
-			type("Automation", name);
-			type("Test", lastName);
-			click(nameContinueBtn);
-		}
-	}
-
+	
+	
+	
+	
+	
+	
+	
 	public void enterEmail() {
 		if (isDisplayed(title) & isDisplayed(emailBackBtn) & isDisplayed(emailContinueBtn)) {
 			type("randomMail@yopmail.com", schoolMail);
@@ -143,5 +163,8 @@ public class SingUpPage extends BaseObject {
 		if (isDisplayed(confirmEmailTitle)) {
 			click(confirmEmailButton);
 		}
+	}
+	public boolean logoDisplay() {
+		return isDisplayed(letsGo);
 	}
 }
