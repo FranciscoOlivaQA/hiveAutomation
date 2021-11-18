@@ -22,26 +22,71 @@ public class sing_up {
 	
 	
   @Test
-  public void singUp() throws NullPointerException, InterruptedException {
-	  Thread.sleep(200);
+  public void singUp() throws Exception {
+	  singuppage.implicitWait();
+	  singuppage.reporter("Opening Browser...");
 	  singuppage.singUp(driver);
 	  assertTrue(singuppage.okletsgo(driver));
-	  Thread.sleep(200);
-	  }
-
-  
-  
-  @Test
-  public void abenterEmail() throws Exception  {
-	  //	  singuppage.enterName();
-	  }
-  
+	  singuppage.reporter("Log in succesfully");
+	  singuppage.reporter("Entering Name and Last Name...");
+	  singuppage.enterName();
+	  singuppage.reporter("Enter Name Succesfully");
+	  singuppage.implicitWait(2);
+	  singuppage.reporter("Entering email...");
+	  singuppage.enterEmail();
+	  singuppage.reporter("Email set succesfully");
+	  singuppage.reporter("Entering alter email...");
+	  singuppage.alterMail();
+	  singuppage.reporter("Alter Email set succesfully");
+	  singuppage.implicitWait(2);
+	  singuppage.implicitWait();
+	  singuppage.reporter("AboutUs completing...");
+	  singuppage.aboutUs();
+	  singuppage.reporter("About us complete Succesfully");
+	  singuppage.implicitWait();
+  }
+//  	@Test
+//  	public void enterName() {
+//	  singuppage.reporter("Entering Name and Last Name...");
+//	  singuppage.enterName();
+//	  singuppage.reporter("Enter Name Succesfully");
+//	  singuppage.implicitWait(2);
+//	  }
+//
+//  	@Test
+//  	public void enterEmail() throws Exception {
+//	  singuppage.reporter("Entering email...");
+//	  singuppage.enterEmail();
+//	  singuppage.reporter("Email set succesfully");
+//  	}
+//  	
+//  	@Test
+//  	public void  alterEmail() {
+//	  singuppage.reporter("Entering alter email...");
+//	  singuppage.alterMail();
+//	  singuppage.reporter("Alter Email set succesfully");
+//	  singuppage.implicitWait(2);
+//  	}
+//  	
+//  	@Test
+//  	public void aboutUs() {
+//  		
+//	  singuppage.implicitWait();
+//	  singuppage.reporter("AboutUs completing...");
+//	  singuppage.aboutUs();
+//	  singuppage.reporter("About us complete Succesfully");
+//	  singuppage.implicitWait();
+//	  
+//	  }
+//
+//  
+//  
   
   @BeforeClass
   public void beforeClass() {
 	  singuppage = new SingUpPage(driver);
 	  driver = singuppage.chromeDriverConnection();
-	  
+	  driver.manage().window().maximize();
 	  singuppage.visit("http://staging.hellohive.com/register");
   }
 

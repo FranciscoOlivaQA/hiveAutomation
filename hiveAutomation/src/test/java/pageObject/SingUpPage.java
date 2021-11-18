@@ -39,14 +39,14 @@ public class SingUpPage extends BaseObject {
 	// alterAddress
 	By titleAlterAddress = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[1]/h1"); // text to be present "Enter an
 																						// alternate email address."
-	By alterEmail = By.id("alternativeEmail");
+	By alterEmail = By.name("alternativeEmail");
 	By alterBackBtn = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[2]/div[1]/div[1]/button");
 	By alterContinueBtn = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[2]/div[1]/div[4]/button");
 
 	// hear about us
-	By aboutUsTitle = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[1]/div/h1"); // text to be present "How did
+	By aboutUsTitle = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[1]/div/h1/text()[1]"); // text to be present "How did
 																						// you hear"
-	By selectOptionHear = By.xpath("//*[@id=\"heardFromUs\"]/div");
+	By selectOptionHear = By.xpath("//*[@id=\"heardFromUs\"]/div/div[1]/div[1]");
 	By aboutUsBackBtn = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[2]/div[1]/div[1]/button");
 	By aboutUsContinueBtn = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[2]/div[1]/div[4]/button");
 	// University
@@ -76,16 +76,12 @@ public class SingUpPage extends BaseObject {
 	By confirmEmailLabel = By.name("email");
 	By confirmEmailButton = By.xpath("//*[@id=\"root\"]/div/div/div[2]/form/div[1]/div/button");
 
-	
-	
-	
-	public void singUp(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.urlToBe("http://staging.hellohive.com/register"));
-		wait.until(ExpectedConditions.textToBe(singUpTextLabel, "Sign up and get buzzing."));
-		wait.until(ExpectedConditions.elementToBeClickable(letsGo));
+	public void singUp(WebDriver driver) throws Exception {
+		
+		waitForElementPresent(letsGo);
+		Thread.sleep(20);
 		click(letsGo);
-		wait.until(ExpectedConditions.elementToBeClickable(name));
+		waitForElementPresent(name);
 	}
 
 	public boolean okletsgo(WebDriver driver) {
@@ -93,77 +89,88 @@ public class SingUpPage extends BaseObject {
 		wait.until(ExpectedConditions.elementToBeClickable(name));
 		return true;
 	}
-	
-	
-	
-	public void enterName(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
- 		//wait.until(ExpectedConditions.textToBe(locator, value));
-		wait.until(ExpectedConditions.elementToBeClickable(name));
- 		
+
+	public void enterName() {
+		waitForElementPresent(name);
+
 		type("Automation", name);
 		type("Test", lastName);
 		click(nameContinueBtn);
 		
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	public void enterEmail() {
-		if (isDisplayed(title) & isDisplayed(emailBackBtn) & isDisplayed(emailContinueBtn)) {
-			type("randomMail@yopmail.com", schoolMail);
-			click(emailContinueBtn);
-		}
+	public void enterEmail() throws Exception {
+
+		waitForElementPresent(schoolMail);
+		type("randomMail@yopmail.com", schoolMail);
+		click(emailContinueBtn);
+		Thread.sleep(2000);
+		type("randomMail@yopmail.com", schoolMail);
+		waitForElementPresentToBeClikleabe(emailContinueBtn);
+		click(emailContinueBtn);
+		waitForElementPresentToBeClikleabe(emailContinueBtn);
+		click(emailContinueBtn);waitForElementPresentToBeClikleabe(emailContinueBtn);
+		click(emailContinueBtn);waitForElementPresentToBeClikleabe(emailContinueBtn);
+		click(emailContinueBtn);waitForElementPresentToBeClikleabe(emailContinueBtn);
+		click(emailContinueBtn);waitForElementPresentToBeClikleabe(emailContinueBtn);
+		click(emailContinueBtn);waitForElementPresentToBeClikleabe(emailContinueBtn);
+		click(emailContinueBtn);
+		
 	}
 
 	public void alterMail() {
-		if (isDisplayed(titleAlterAddress) & isDisplayed(alterContinueBtn)) {
-			type("oliva.francisco.j@gmail.com", alterEmail);
-			click(alterContinueBtn);
-		}
+		implicitWait();
+		waitForElementPresent(alterEmail);
+		waitForElementPresent(alterContinueBtn);
+		assertEquals(getText(titleAlterAddress), "Enter an alternate email address.");
+		type("oliva.francisco.j@gmail.com", alterEmail);
+		click(alterContinueBtn);
 	}
 
 	public void aboutUs() {
-		if (isDisplayed(aboutUsTitle)) {
-			selectDropdownList_hearAboutUs(selectOptionHear, "Google Search");
-			click(aboutUsContinueBtn);
-		}
+		System.out.println("1");
+		//waitForElementPresent(aboutUsTitle);
+		System.out.println("2");
+		waitForElementPresent(selectOptionHear);
+		System.out.println("3");
+		click(selectOptionHear);
+		System.out.println("4");
+		selectDropdownList(selectOptionHear, "Google Search");
+		System.out.println("5");
+		click(aboutUsContinueBtn);
+		//assertEquals(getText(aboutUsTitle), "How did you hear");
 	}
 
 	public void university() {
-		if (isDisplayed(universityTitle)) {
-			selectDropdownList_hearAboutUs(universityTitle, "Adrian Collage");
-			click(universityContunueBtn);
-		}
+		waitForElementPresent(aboutUsTitle);
+		selectDropdownList(universityTitle, "Adrian Collage");
+		click(universityContunueBtn);
+		
 	}
 
 	public void password() {
-		if (isDisplayed(passwordTitle)) {
+		waitForElementPresent(passwordTitle);
 			type("Frankie652!", passwordLbl);
 			type("Frankie652!", confirmPasswordLbl);
 			click(termsAndcond);
 			click(passwordContinueBtn);
-		}
+		
 	}
 
 	public void phoneNumber() {
-		if (isDisplayed(phoneTitle)) {
+		waitForElementPresent(phoneTitle);
 			type("5157889632", phoneLabel);
 			click(checkBox);
 			click(phoneContinueBtn);
-		}
+		
 	}
 
 	public void confirm() {
-		if (isDisplayed(confirmEmailTitle)) {
+		waitForElementPresent(confirmEmailTitle);
 			click(confirmEmailButton);
-		}
+		
 	}
+
 	public boolean logoDisplay() {
 		return isDisplayed(letsGo);
 	}

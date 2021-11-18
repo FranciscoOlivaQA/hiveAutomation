@@ -103,7 +103,7 @@ public class BaseObject {
 
 	}
 
-	public String selectDropdownList_hearAboutUs(By locator, String text) {
+	public String selectDropdownList(By locator, String text) {
 		Select selectList = new Select(findElement(locator));
 		selectList.selectByVisibleText(text);
 		return getText(selectList.getFirstSelectedOption());
@@ -119,7 +119,7 @@ public class BaseObject {
 	 */
 	public void implicitWait() {
 		try {
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(GlobalLocalVariables.TIMEOUT_SEC, TimeUnit.SECONDS);
 		} catch (TimeoutException e) {
 			e.printStackTrace();
 		}
@@ -142,12 +142,22 @@ public class BaseObject {
 	 */
 	public void waitForElementPresent(By locator) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver, GlobalLocalVariables.TIMEOUT_SEC);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (TimeoutException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	public void waitForElementPresentToBeClikleabe(By locator) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, GlobalLocalVariables.TIMEOUT_SEC);
+			wait.until(ExpectedConditions.elementToBeClickable(locator));
+		} catch (TimeoutException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public void closeBrowser() {
 		driver.close();
